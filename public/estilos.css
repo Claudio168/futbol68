@@ -1,0 +1,204 @@
+
+.table-container {
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+#customers {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #444;
+  background-color: #333; /* Fondo oscuro */
+  font-family: Arial, Helvetica, sans-serif;
+  
+
+}
+
+
+#customers th {
+  position: sticky;
+  top: 0;
+  padding: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #125441;
+  color: white;
+  border-radius: 7px;
+}
+
+#customers th:not(:first-child) {
+
+  border-left: 4px solid #151010;
+  border-right: 2px solid #151010;
+ 
+}
+#customers td {
+
+  padding: 10px;
+  border: 0px solid #444;
+  color: #fff; /* Texto blanco */
+}
+
+
+#customers tbody tr:nth-child(even) {
+  background-color: #444; /* Fondo más claro para filas pares */
+}
+
+/* Efecto hover */
+#customers tbody tr:hover {
+  background-color: #555; /* Fondo más oscuro al pasar el mouse */
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+
+/* Aplica estilos diferentes a las primeras tres columnas */
+#customers th:nth-child(-n+3) {
+  text-align: left; /* O el estilo que desees para estas columnas */
+}
+
+#customers td:nth-child(n+3) {
+  text-align: center;
+}
+.flex-container {
+  display: flex;
+  align-items: center; /* Alinea verticalmente */
+}
+
+.verde{
+  margin:auto;
+}
+.rojo{
+  margin:auto;
+}
+.logoEquipo {
+  max-width: 30px; /* Cambia este valor según el tamaño que desees */
+  max-height: 30px; /* Cambia este valor según el tamaño que desees */
+  margin-right: 10px; /* Ajusta el espacio entre la imagen y el texto según sea necesario */
+}
+
+/* Estilo base para los select */
+.seleccion{
+  appearance: none;
+  padding: 0.5rem 1rem;
+  margin: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #acb1b8;
+  background-color: #fff;
+  color: #4a5568;
+  transition: border-color 0.3s ease;
+
+
+  -webkit-appearance: none; /* Safari y Chrome */
+  -moz-appearance: none; /* Firefox */
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 1.5em; /* Espacio para la imagen de la flecha */
+}
+
+/* Estilo al pasar el mouse sobre el select */
+.seleccion:hover {
+  border-color: #2e353b;
+}
+
+/* Estilo al enfocar el select */
+.seleccion:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* Estilo para las opciones del select */
+.seleccion option {
+  padding: 0.5rem 1rem;
+}
+
+/* Estilo para las opciones al pasar el mouse */
+.seleccion option:hover {
+  background-color: #edf2f7;
+}
+
+.sticky-thead {
+  position: sticky;
+  top: 0;
+  background-color: #fff; /* Cambia el color de fondo según sea necesario */
+  z-index: 1; /* Asegura que esté por encima del contenido de la tabla */
+}
+
+.selAnio {
+  -webkit-appearance: none; /* Safari y Chrome */
+  -moz-appearance: none; /* Firefox */
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 1.5em; /* Espacio para la imagen de la flecha */
+}
+
+.logo{
+  width: 250px;
+  
+}
+/* Estilos para la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+}
+/* Estilos para la barra de desplazamiento horizontal */
+::-webkit-scrollbar {
+  height: 10px; /* Altura de la barra de desplazamiento horizontal */
+}
+
+/* Estilo del fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Estilo del pulgar de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background-color: #554f5c;
+  border-radius: 3px; /* Radio de borde del pulgar */
+}
+
+/* Estilo del pulgar de la barra de desplazamiento al pasar el ratón */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #382b4d;
+}
+
+  
+
+@media only screen and (max-width: 600px) {
+  /* Cuando la pantalla es pequeña */
+  td {
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el texto que sobrepase el ancho de la celda */
+    text-overflow: ellipsis; /* Agrega "..." al final del texto truncado */
+    max-width: 200px; /* Define el ancho máximo de la celda */
+  }
+  .calcorner{
+    width: 700px;/* Ancho reducido para pantallas pequeñas */
+    margin: 2px; 
+    padding: 1px;
+  }
+  .table-container {
+    max-height: 700px;
+    overflow-y: auto;
+  }
+  .logo{
+    width: 150px;
+  }
+}
+
+
+footer {
+  background-color: #35374B; /* Color de fondo más oscuro */
+  padding: 30px;
+  text-align: center;
+  color: white;
+  width: 100%;
+  bottom: 0;
+}
+

@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Models\Espania;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class SubirLaLigaFixture2021 extends Model
+{
+    use HasFactory;
+    protected $table = 'espania_la_liga_fixtures2021';
+    protected $guarded = [];
+}
