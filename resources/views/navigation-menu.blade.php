@@ -109,7 +109,7 @@
                             <!-- Contenido del super menú aquí -->
                             <li class="flex items-center relative" @click.away="subMenuOpen = false" x-data="{ subMenuOpen: false }">
                                 <img src="{{ asset('banderas/world.jpg') }}" class="w-5 h-5 rounded-full">
-                                <a class="px-2 py-2 hover:text-gray-400 text-gray-800" @click.prevent="subMenuOpen = !subMenuOpen">World</a>
+                                <a class="px-2 py-2 hover:text-gray-400 text-gray-800" @click.prevent="subMenuOpen = !subMenuOpen">Mundo</a>
                                 <!-- Submenú -->
                                 <ul x-show="subMenuOpen" class="absolute left-0 top-full mt-2 p-2 bg-white rounded-lg shadow-lg" x-cloak style="min-width: 300px; z-index: 10;">
                                     <li class="py-2 flex items-center"><a href="{{ route('champion-league') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/2.png" class="w-5 h-5 mr-1 rounded-full"> Champion League</a></li>
