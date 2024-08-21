@@ -12,7 +12,7 @@ class TablaGoles extends Component
 
     public $lugar, $team, $total, $temporada, $temp2024, $temp2023, $temp2022, $temp2021, $temp2020, $pais, $liga, $temPorDefecto;
     
-    
+
     public function render()
     {
         $modelName = $this->temporada ?? $this->temPorDefecto;

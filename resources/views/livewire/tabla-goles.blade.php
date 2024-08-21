@@ -2,6 +2,9 @@
     <div class="overflow-x-auto">
         <div class="flex">
             <select class="seleccion selAnio" wire:model.live="temporada">
+            @if(isset($temp2025))
+                <option value="{{$temp2025}}">2025</option>
+                @endif
                 @if(isset($temp2024))
                 <option value="{{$temp2024}}">2024</option>
                 @endif
