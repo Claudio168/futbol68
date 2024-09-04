@@ -4,16 +4,31 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Cache;
+use App\Services\YearRangeService;
 
 
 class Tarjetas extends Component
 {
-    public $lugar, $team, $total, $arbitro, $temporada, $temp2024, $temp2023,  $pais, $liga, $temPorDefecto, $countMaches, $param;
+    public $lugar, $team, $total, $arbitro, $temporada, $temp2024, $temp2023,  $pais, $liga, $countMaches, $param, $nombreModelo,  $auxModel;
+
+    
+    public $anios = [];
 
 
+    protected $yearRangeService;
+
+    // Inyecta el servicio en el método mount
+    public function mount(YearRangeService $yearRangeService)
+    {
+        $this->yearRangeService = $yearRangeService;
+        $this->anios = $this->yearRangeService->getYearRange($this->pais);
+    }
+    
     public function render()
     {
-        $modelName = $this->temporada ?? $this->temPorDefecto;
+        $anioDefecto =  reset($this->anios);//se optiene el ultimo año del select
+        $modelName = $this->nombreModelo . ($this->temporada ?? $anioDefecto);
+        
         //se guardan los partidos en cache durante una hora
         $cacheKeyPremier = 'PremierLeagueStat' . $this->liga . $this->temporada;
         $model = Cache::remember($cacheKeyPremier, 1440, function () use ($modelName) {

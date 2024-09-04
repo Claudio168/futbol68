@@ -4,25 +4,41 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Cache;
+use App\Services\YearRangeService;
 
 
 class TablaGoles extends Component
 {
 
 
-    public $lugar, $team, $total, $temporada, $temp2024, $temp2023, $temp2022, $temp2021, $temp2020, $pais, $liga, $temPorDefecto;
-    
+    public $lugar, $team, $total, $temporada, $nombreModelo, $pais, $liga;
 
+    public $anios = [];
+
+
+    protected $yearRangeService;
+
+    // Inyecta el servicio en el método mount
+    public function mount(YearRangeService $yearRangeService)
+    {
+        $this->yearRangeService = $yearRangeService;
+        $this->anios = $this->yearRangeService->getYearRange($this->pais);
+    }
+    
     public function render()
     {
-        $modelName = $this->temporada ?? $this->temPorDefecto;
+        $anioDefecto =  reset($this->anios);//se optiene el ultimo año del select
+        $modelName = $this->nombreModelo . ($this->temporada ?? $anioDefecto);
+        
     
         //se guardan los partidos en cache durante una hora
         $cacheKeyPremier = $this->liga . $this->temporada;
         $model = Cache::remember($cacheKeyPremier, 1440, function () use ($modelName) {
+        
             return app("App\\Models\\$this->pais\\$modelName");
+    
         });
-       
+
         //se guardan los equipos en cache durante un mes
         $cacheKey = 'teams' . $this->liga . $this->temporada;
         $teams = Cache::remember($cacheKey, 43200, function () use ($model) {
@@ -46,9 +62,8 @@ class TablaGoles extends Component
         if ($this->team) {
 
             if ($this->team !== "todos") {
-               
+
                 $query = $model::where('teams_home_name', $this->team)->orWhere('teams_away_name', $this->team)->orderBy('fixture_timestamp', 'DESC')->get();
-                
             }
 
 
@@ -61,7 +76,7 @@ class TablaGoles extends Component
                         ->orderBy('fixture_timestamp', 'DESC')->get();
                 } elseif ($this->lugar == "ambos") {
                     //$this->total = "totalPartido";
-                   $query = $model::where('teams_home_name', $this->team)->orWhere('teams_away_name', $this->team)->orderBy('fixture_timestamp', 'DESC')->get();
+                    $query = $model::where('teams_home_name', $this->team)->orWhere('teams_away_name', $this->team)->orderBy('fixture_timestamp', 'DESC')->get();
                 }
             }
 
@@ -79,9 +94,9 @@ class TablaGoles extends Component
                             ->select('id', 'fixture_date', 'teams_home_name', 'teams_away_name', 'teams_home_logo', 'teams_away_logo', 'score_halftime_away', 'score_fulltime_away')
                             ->get();
                     } else {
-                    
+
                         $query = $query->map(function ($partido) {
-        
+
                             if ($partido->teams_home_name == $this->team) {
                                 return (object) [
                                     'fixture_date' => $partido->fixture_date,

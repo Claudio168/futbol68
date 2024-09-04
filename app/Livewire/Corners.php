@@ -4,38 +4,85 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Cache;
+use App\Services\YearRangeService;
 
 
 class Corners extends Component
 {
-    public $lugar, $team, $total, $temporada, $temp2024, $temp2023,  $pais, $liga, $temPorDefecto, $countMaches;
+    public $lugar, $team, $total, $temporada,  $nombreModelo, $pais, $liga, $countMaches, $modelName, $anioDefecto, $auxModel;
+
+    public $anios = [];
+    
+
+    protected $yearRangeService;
+
+    // Inyecta el servicio en el método mount
+    public function mount(YearRangeService $yearRangeService)
+    {
+        $this->yearRangeService = $yearRangeService;
+        $this->anios = $this->yearRangeService->getYearRange($this->pais);
+    }
 
     public function render()
     {
-        $modelName = $this->temporada ?? $this->temPorDefecto;
-        //se guardan los partidos en cache durante una hora
-        $cacheKeyPremier = 'PremierLeagueStat' . $this->liga . $this->temporada;
-        $model = Cache::remember($cacheKeyPremier, 1440, function () use ($modelName) {
-            return app("App\\Models\\$this->pais\\$modelName");
-        });
+        $this->anioDefecto = reset($this->anios); // Se obtiene el último año del select
+        $modelName = $this->nombreModelo . ($this->temporada ?? $this->anioDefecto);
+    
+        $this->auxModel = $modelName;
 
-        //se guardan los equipos en cache durante un mes
-        $cacheKey = 'teams' . $this->liga . $this->temporada;
-        $teams = Cache::remember($cacheKey, 43200, function () use ($model) {
-            $homeTeams = $model::select('teams_home_name')
-                ->distinct()
-                ->get()
-                ->pluck('teams_home_name');
+        // Se guarda el cacheKey basado en el modelo y temporada
+        $cacheKeyPremier = $modelName;
+        
+        if ($this->temporada === $this->anioDefecto) {
+            // Temporada actual, cacheo por 1 día (1440 minutos)
+            $model = Cache::remember($cacheKeyPremier, 1440, function () use ($modelName) {
+                return app("App\\Models\\$this->pais\\$modelName");
+            });
+        } else {
+            // Temporada anterior, cacheo indefinido
+            $model = Cache::rememberForever($cacheKeyPremier, function () use ($modelName) {
+                return app("App\\Models\\$this->pais\\$modelName");
+            });
+        }
 
-            $awayTeams = $model::select('teams_away_name')
-                ->distinct()
-                ->get()
-                ->pluck('teams_away_name');
+        //Equipos en cache
+        $cacheKey = 'teams' . $modelName;
+        // Si es la temporada actual, cachea por un mes (43200 minutos). Para temporadas anteriores, cachea indefinidamente.
+        if ($this->temporada === $this->anioDefecto) {
+            // Temporada actual: Cacheo por 1 mes (43200 minutos)
+            $teams = Cache::remember($cacheKey, 43200, function () use ($model) {
+                $homeTeams = $model::select('teams_home_name')
+                    ->distinct()
+                    ->get()
+                    ->pluck('teams_home_name');
 
-            $teams = $homeTeams->merge($awayTeams)->unique()->values()->toArray();
+                $awayTeams = $model::select('teams_away_name')
+                    ->distinct()
+                    ->get()
+                    ->pluck('teams_away_name');
 
-            return $teams;
-        });
+                $teams = $homeTeams->merge($awayTeams)->unique()->values()->toArray();
+
+                return $teams;
+            });
+        } else {
+            // Temporadas anteriores: Cacheo indefinido
+            $teams = Cache::rememberForever($cacheKey, function () use ($model) {
+                $homeTeams = $model::select('teams_home_name')
+                    ->distinct()
+                    ->get()
+                    ->pluck('teams_home_name');
+
+                $awayTeams = $model::select('teams_away_name')
+                    ->distinct()
+                    ->get()
+                    ->pluck('teams_away_name');
+
+                $teams = $homeTeams->merge($awayTeams)->unique()->values()->toArray();
+
+                return $teams;
+            });
+        }
 
 
         $query =  $model::orderBy('fixture_timestamp', 'DESC')->get();
@@ -44,7 +91,7 @@ class Corners extends Component
         if ($this->team) {
 
             $query = $model::where('teams_home_name', $this->team)->orWhere('teams_away_name', $this->team)->orderBy('fixture_timestamp', 'DESC')->get();
-    
+
 
             if ($this->lugar) {
                 if ($this->lugar == "local") {

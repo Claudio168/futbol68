@@ -4,7 +4,7 @@
        
         <div id="corners" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:fouls :pais="'Inglaterra'" :liga="'la-premier-league'" :temPorDefecto="'PremierLeagueStat2023'"  :temp2023="'PremierLeagueStat2023'" />
+                <livewire:fouls :pais="'Inglaterra'" :liga="'la-premier-league'"  :nombreModelo="'PremierLeagueStat'"/>
             </div>
         </div>
     </div>

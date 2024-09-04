@@ -2,24 +2,9 @@
     <div class="overflow-x-auto">
         <div class="flex">
             <select class="seleccion selAnio" wire:model.live="temporada">
-            @if(isset($temp2025))
-                <option value="{{$temp2025}}">2025</option>
-                @endif
-                @if(isset($temp2024))
-                <option value="{{$temp2024}}">2024</option>
-                @endif
-                @if(isset($temp2023))
-                <option value="{{$temp2023}}">2023</option>
-                @endif
-                @if(isset($temp2022))
-                <option value="{{$temp2022}}">2022</option>
-                @endif
-                @if(isset($temp2021))
-                <option value="{{$temp2021}}">2021</option>
-                @endif
-                @if(isset($temp2020))
-                <option value="{{$temp2020}}">2020</option>
-                @endif
+                @foreach($anios  as $anio)
+                <option value="{{ $anio }}"> {{ $anio }} </option>
+                @endforeach
             </select>
             <select class="seleccion" wire:model.live="team">
                 <option value="">Team</option>

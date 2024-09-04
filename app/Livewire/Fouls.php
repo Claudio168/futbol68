@@ -4,17 +4,31 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Cache;
+use App\Services\YearRangeService;
 
 
 class Fouls extends Component
 {
-    public $lugar, $team, $total, $temporada, $temp2024, $temp2023,  $pais, $liga, $temPorDefecto, $countMaches;
+    public $lugar, $team, $total, $temporada,  $pais, $liga, $countMaches, $modelName, $nombreModelo;
 
+    public $anios = [];
+
+
+    protected $yearRangeService;
+
+    // Inyecta el servicio en el método mount
+    public function mount(YearRangeService $yearRangeService)
+    {
+        $this->yearRangeService = $yearRangeService;
+        $this->anios = $this->yearRangeService->getYearRange($this->pais);
+    }
+    
     public function render()
     {
-        $modelName = $this->temporada ?? $this->temPorDefecto;
+        $anioDefecto =  reset($this->anios);//se optiene el ultimo año del select
+        $modelName = $this->nombreModelo . ($this->temporada ?? $anioDefecto);
         //se guardan los partidos en cache durante una hora
-        $cacheKeyPremier = 'PremierLeagueStat' . $this->liga . $this->temporada;
+        $cacheKeyPremier = $modelName;
         $model = Cache::remember($cacheKeyPremier, 1440, function () use ($modelName) {
             return app("App\\Models\\$this->pais\\$modelName");
         });

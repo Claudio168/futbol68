@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\Cache;
 
 class CalculadoraTarjetas extends Component
 {
-    public $local, $visita,  $tarjetasEsperadas, $pais, $temPorDefecto, $arbitro, $temporada, $liga, $idLocal, $idVisita;
+    public $local, $visita,  $tarjetasEsperadas, $pais, $arbitro, $temporada, $nombreModelo, $liga, $idLocal, $idVisita;
 
     public function render()
     {
-        $modelName = $this->temporada ?? $this->temPorDefecto;
-        $model = app("App\\Models\\$this->pais\\$modelName");
+        $valor = Cache::get($this->nombreModelo);
+    
+        $model =  $valor;
+
 
         //se guardan los equipos en cache durante un mes
         $cacheKey = 'teams'.$this->liga . $this->temporada;
@@ -120,10 +122,6 @@ class CalculadoraTarjetas extends Component
                 $this->tarjetasEsperadas = $tarjetasEsperadas;
             }
         }
-
-
-
-
 
 
         return view('livewire.calculadora-tarjetas', compact('teams', 'arbitros'));

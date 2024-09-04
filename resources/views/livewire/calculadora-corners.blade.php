@@ -39,7 +39,7 @@
                 <img class="logoEquipo h-12 m-2" src="https://media.api-sports.io/football/teams/{{$idLocal}}.png" alt="Local Team Logo">
                 <img class="logoEquipo h-12 m-2" src="/vs.png" alt="Local Team Logo">
                 <img class="logoEquipo h-12 m-2" src="https://media.api-sports.io/football/teams/{{$idVisita}}.png" alt="Visiting Team Logo">
-                <p class="text-sm ml-1 truncate">Para este partido se esperan {{$cornersEsperados}} corners &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p class="text-sm ml-1 truncate">El promedio para este partido es:  {{$cornersEsperados}} corners &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             </div>
             @endif
 
