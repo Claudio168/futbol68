@@ -5,7 +5,7 @@
        
         <div id="corners" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:corners :pais="'Argentina'" :liga="'copa-de-la-liga'" :temPorDefecto="'CopaDeLaLigaStat2024'" :temp2024="'CopaDeLaLigaStat2024'" />
+                <livewire:corners :pais="'Argentina'" :liga="'copa-de-la-liga'" :nombreModelo="'CopaDeLaLigaStat'"  />
         </div>
     </div>
 </x-app-layout>

@@ -4,7 +4,7 @@
        
         <div id="corners" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:disparo-arco :pais="'Mexico'" :liga="'liga-mx'" :temPorDefecto="'LigaMXStat2023'"  :temp2023="'LigaMXStat2023'" />
+                <livewire:disparo-arco :pais="'Mexico'" :liga="'liga-mx'" :nombreModelo="'LigaMXStat'" />
             </div>
         </div>
     </div>

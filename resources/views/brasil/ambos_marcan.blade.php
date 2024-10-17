@@ -4,7 +4,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:ambos-marcan :pais="'Brasil'" :liga="'brasileirao'" :temPorDefecto="'Brasileirao2024'" :temp2024="'Brasileirao2024'" />
+                <livewire:ambos-marcan :pais="'Brasil'" :liga="'brasileirao'" :nombreModelo="'Brasileirao'" />
             </div>
         </div>
     </div>

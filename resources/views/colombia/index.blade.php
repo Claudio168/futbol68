@@ -5,7 +5,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            <livewire:tabla-goles :pais="'Colombia'" :liga="'colombia-primera-a'" :temPorDefecto="'ColombiaApertura2024'"  :temp2024="'ColombiaApertura2024'" />
+            <livewire:tabla-goles :pais="'Colombia'" :liga="'colombia-primera-a'" :nombreModelo="'ColombiaApertura'" />
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
        
         <div id="corners" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:disparo-arco :pais="'Colombia'" :liga="'colombia-primera-a'" :temPorDefecto="'ColombiaAperturaStat2024'"  :temp2024="'ColombiaAperturaStat2024'" />
+                <livewire:disparo-arco :pais="'Colombia'" :liga="'colombia-primera-a'" :nombreModelo="'ColombiaAperturaStat'" />
         </div>
     </div>
 </x-app-layout>

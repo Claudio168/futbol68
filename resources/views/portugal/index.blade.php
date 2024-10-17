@@ -5,7 +5,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            <livewire:tabla-goles :pais="'Portugal'" :liga="'primeiraliga'" :temPorDefecto="'Primeira_liga2023'" :temp2023="'Primeira_liga2023'" :temp2022="'Primeira_liga2022'" :temp2021="'Primeira_liga2021'" :temp2020="'Primeira_liga2020'" />
+            <livewire:tabla-goles :pais="'Portugal'" :liga="'primeiraliga'" :nombreModelo="'Primeira_liga'" />
             </div>
         </div>
     </div>

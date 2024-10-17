@@ -6,7 +6,7 @@ class YearRangeService
 {
     public function getYearRange(string $pais): array
     {
-        $paisesDeEuropa = ['Espania', 'Francia', 'Alemania', 'Italia', 'Portugal', 'Inglaterra', 'PaisesBajos'];
+        $paisesDeEuropa = ['Espania', 'Francia', 'Alemania', 'Italia', 'Portugal', 'Inglaterra', 'PaisesBajos', 'Mexico'];
 
         if (in_array($pais, $paisesDeEuropa)) {
             $anios = range(2020, 2024); // Rango de años

@@ -5,7 +5,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            <livewire:tabla-goles :pais="'PaisesBajos'" :liga="'eredivisie'" :temPorDefecto="'EredivisieFixture2023'" :temp2023="'EredivisieFixture2023'" />
+            <livewire:tabla-goles :pais="'PaisesBajos'" :liga="'eredivisie'" :nombreModelo="'EredivisieFixture'" />
             </div>
         </div>
     </div>

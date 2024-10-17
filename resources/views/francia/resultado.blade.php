@@ -4,8 +4,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:resultado :pais="'Francia'" :liga="'ligue1'" :temPorDefecto="'Ligue1_2023'" :temp2023="'Ligue1_2023'" :temp2022="'Ligue1_2022'" :temp2021="'Ligue1_2021'" :temp2020="'Ligue1_2020'" />
-            </div>
+                <livewire:resultado :pais="'Francia'" :liga="'ligue1'" :nombreModelo="'Ligue1_'" />
         </div>
     </div>
 </x-app-layout>

@@ -4,7 +4,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-            <livewire:half-time-full-time :pais="'Italia'" :liga="'el-calcio'" :temPorDefecto="'SubirElCalcioFixture2023'" :temp2023="'SubirElCalcioFixture2023'" :temp2022="'SubirElCalcioFixture2022'" :temp2021="'SubirElCalcioFixture2021'" :temp2020="'SubirElCalcioFixture2020'" />
+            <livewire:half-time-full-time :pais="'Italia'" :liga="'el-calcio'" :nombreModelo="'SubirElCalcioFixture'" />
             </div>
         </div>
     </div>

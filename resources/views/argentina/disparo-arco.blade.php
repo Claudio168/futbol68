@@ -4,8 +4,8 @@
        
         <div id="corners" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:disparo-arco :pais="'Argentina'" :liga="'copa-de-la-liga'" :temPorDefecto="'CopaDeLaLigaStat2024'" :temp2024="'CopaDeLaLigaStat2024'" />
-            </div>
+                <livewire:disparo-arco :pais="'Argentina'" :liga="'copa-de-la-liga'" :nombreModelo="'CopaDeLaLigaStat'"  />
+                </div>
         </div>
     </div>
 </x-app-layout>

@@ -4,7 +4,7 @@
        
         <div id="corners" class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:fouls :pais="'Italia'" :liga="'el-calcio'" :temPorDefecto="'FixtureElCalcioStat2023'"  :temp2023="'FixtureElCalcioStat2023'" />
+            <livewire:fouls :pais="'Italia'" :liga="'el-calcio'" :nombreModelo="'FixtureElCalcioStat'" />
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:tarjetas :pais="'Francia'" :liga="'ligue1'" :temPorDefecto="'Ligue1Stat2023'"  :temp2023="'Ligue1Stat2023'" />
+                <livewire:tarjetas :pais="'Francia'" :liga="'ligue1'" :nombreModelo="'Ligue1Stat'" />
             </div>
         </div>
     </div>

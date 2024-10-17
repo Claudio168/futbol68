@@ -4,7 +4,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:resultado :pais="'Argentina'" :liga="'copa-de-la-liga'" :temPorDefecto="'CopaDeLaLiga2024'" :temp2024="'CopaDeLaLiga2024'" />
+                <livewire:resultado :pais="'Argentina'" :liga="'copa-de-la-liga'" :nombreModelo="'CopaDeLaLiga'"  />
         </div>
     </div>
 </x-app-layout>
