@@ -117,6 +117,7 @@ Route::middleware([
     })->name('bundesliga-fouls');
 
     //Argentina
+    //Copa de la liga
     Route::get('/copa-de-la-liga-argentina-corners', function () {
         return view('argentina.corners');
     })->name('copa-de-la-liga-argentina-corners');
@@ -138,6 +139,29 @@ Route::middleware([
     Route::get('/copa-de-la-liga-argentina-fouls', function () {
         return view('argentina.fouls');
     })->name('copa-de-la-liga-argentina-fouls');
+
+    //Super liga  agregar rutas y editar las vistas y las rutas navigation2
+    Route::get('/super-liga-argentina-corners', function () {
+        return view('argentina.superliga.corners');
+    })->name('super-liga-argentina-corners');
+    Route::get('/super-liga-argentina-ht-ft', function () {
+        return view('argentina.superliga.ht-ft');
+    })->name('super-liga-argentina-ht-ft');
+    Route::get('/super-liga-argentina-resultado', function () {
+        return view('argentina.superliga.resultado');
+    })->name('super-liga-argentina-resultado');
+    Route::get('/super-liga-argentina-ambos-marcan', function () {
+        return view('argentina.superliga.ambos_marcan');
+    })->name('super-liga-argentina-ambos-marcan');
+    Route::get('/super-liga-argentina-tarjetas', function () {
+        return view('argentina.superliga.tarjetas');
+    })->name('super-liga-argentina-tarjetas');
+    Route::get('/super-liga-argentina-disparo-arco', function () {
+        return view('argentina.superliga.disparo-arco');
+    })->name('super-liga-argentina-disparo-arco');
+    Route::get('/super-liga-argentina-fouls', function () {
+        return view('argentina.superliga.fouls');
+    })->name('super-liga-argentina-fouls');
 
     //Francia
     Route::get('/ligue1-corners', function () {
@@ -413,9 +437,16 @@ Route::get('/bundesliga', function () {
 })->name('bundesliga');
 
 //Argentina
+// --Copa de la liga --
 Route::get('/copa-de-la-liga-argentina', function () {
     return view('argentina.index');
 })->name('copa-de-la-liga-argentina');
+
+
+// --Super liga --
+Route::get('/super-liga-argentina', function () {
+    return view('argentina.superliga.index');
+})->name('super-liga-argentina');
 
 //Francia
 Route::get('/ligue1', function () {

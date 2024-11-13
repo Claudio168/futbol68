@@ -4,7 +4,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:tarjetas  :pais="'World'" :liga="'champion-league'" :temPorDefecto="'ChampionLeagueStat2023'"  :temp2023="'ChampionLeagueStat2023'"/>
+                <livewire:tarjetas  :pais="'World\ChampionLeague'" :liga="'champion-league'" :nombreModelo="'ChampionLeagueStat'" />
             </div>
         </div>
     </div>

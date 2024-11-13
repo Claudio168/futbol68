@@ -156,7 +156,7 @@
                                 <ul x-show="subMenuOpen" class="absolute left-0 top-full mt-2 p-2 bg-white rounded-lg shadow-lg" x-cloak style="min-width: 200px; z-index: 10;">
 
                                     <li class="py-2 flex items-center"><a href="{{ route('copa-de-la-liga-argentina') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/1032.png" class="w-6 h-5 mr-1 rounded-full"> Copa de la liga </a></li>
-                                    <li class="py-2"><a href="#"></a></li>
+                                    <li class="py-2 flex items-center"><a href="{{ route('super-liga-argentina') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/1032.png" class="w-6 h-5 mr-1 rounded-full"> Superliga Argentina  </a></li>
                                 </ul>
                             </li>
                             <!-- Repite el mismo patrón para los demás elementos <li> -->

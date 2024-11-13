@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Models\Argentina;
+namespace App\Models\World\ChampionLeague;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SuperLigaStats2024 extends Model
+class ChampionLeagueStat2024 extends Model
 {
+
     use HasFactory;
-    protected $table = 'argentina_superliga_argentina_stats2024';
+    protected $table = 'world_championleaguestats2024';
     protected $guarded = [];
+
+
+   
 }

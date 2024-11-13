@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\World;
+namespace App\Models\World\ChampionLeague;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EuropaLeague2023 extends Model
+class ChampionLeagueStat2023 extends Model
 {
 
     use HasFactory;
-    protected $table = 'world_europa_league2023';
+    protected $table = 'world_championleaguestats2023';
     protected $guarded = [];
 
 

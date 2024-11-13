@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\World;
+namespace App\Models\World\EuropaConferenceLeague;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
