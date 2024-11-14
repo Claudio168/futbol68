@@ -140,7 +140,7 @@ Route::middleware([
         return view('argentina.fouls');
     })->name('copa-de-la-liga-argentina-fouls');
 
-    //Super liga  agregar rutas y editar las vistas y las rutas navigation2
+    //Super liga 
     Route::get('/super-liga-argentina-corners', function () {
         return view('argentina.superliga.corners');
     })->name('super-liga-argentina-corners');
@@ -393,6 +393,29 @@ Route::middleware([
         return view('world.europa-conference-league.fouls');
     })->name('europa-conference-league-fouls');
 
+    //copa libertadores
+    Route::get('/copa-libertadores-corners', function () {
+        return view('world.copa-libertadores.corners');
+    })->name('copa-libertadores-corners');
+    Route::get('/copa-libertadores-ht-ft', function () {
+        return view('world.copa-libertadores.ht-ft');
+    })->name('copa-libertadores-ht-ft');
+    Route::get('/copa-libertadores-resultado', function () {
+        return view('world.copa-libertadores.resultado');
+    })->name('copa-libertadores-resultado');
+    Route::get('/copa-libertadores-ambos-marcan', function () {
+        return view('world.copa-libertadores.ambos_marcan');
+    })->name('copa-libertadores-ambos-marcan');
+    Route::get('/copa-libertadores-tarjetas', function () {
+        return view('world.copa-libertadores.tarjetas');
+    })->name('copa-libertadores-tarjetas');
+    Route::get('/copa-libertadores-disparo-arco', function () {
+        return view('world.copa-libertadores.disparo-arco');
+    })->name('copa-libertadores-disparo-arco');
+    Route::get('/copa-libertadores-fouls', function () {
+        return view('world.copa-libertadores.fouls');
+    })->name('copa-libertadores-fouls');
+
 });
 
 //no es necesario esta autenticado
@@ -498,3 +521,7 @@ Route::get('/europa-conference-league', function () {
     return view('world.europa-conference-league.index');
 })->name('europa-conference-league');
 
+//Copa Libertadores
+Route::get('/copa-libertadores', function () {
+    return view('world.copa-libertadores.index');
+})->name('copa-libertadores');
