@@ -13,15 +13,28 @@
                 @guest
                 <a href="{{ route('login') }}" class="text-gray-900 dark:text-white">Login</a>
                 @else
-               
+                @php
+                $fullName = Auth::user()->name;
+                $nameParts = explode(' ', $fullName);
+                $firstName = $nameParts[0];
+            
+                $initial = strtoupper(substr($nameParts[0], 0, 1));
+                $initial2 = strtoupper(substr($nameParts[1], 0, 1));
+                $name = isset($nameParts[0]) ? ucfirst(strtolower(substr($nameParts[0], 0, 12))) : '';
+                $lastName = isset($nameParts[1]) ? ucfirst(strtolower(substr($nameParts[1], 0, 12))) : '';
+
+                $nameLength = strlen($firstName);
+                @endphp
 
                 <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
 
 
                     <div class="hidden md:block font-medium text-base">
-                      {{$fullName}} 
+                        {{ $nameLength > 12 ? $initial.'.   ' : $name }} {{ $lastName}}
                     </div>
-                  
+                    <div class="block md:hidden">
+                        {{ $nameLength > 6 ? $initial.'.   ' : $name }} {{ $lastName}}
+                    </div>
                    
         
                     <span><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
