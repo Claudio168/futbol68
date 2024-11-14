@@ -30,10 +30,10 @@
 
 
                     <div class="hidden md:block font-medium text-base">
-                        {{ $nameLength > 12 ? $initial.'.   ' : $name }} {{ $lastName}}
+                      {{$fullName}} 
                     </div>
                     <div class="block md:hidden">
-                        {{ $nameLength > 6 ? $initial.'.   ' : $name }} {{ $lastName}}
+                        {{  $fullName}}
                     </div>
                    
         
