@@ -17,9 +17,11 @@
                 $fullName = Auth::user()->name;
                 $nameParts = explode(' ', $fullName);
                 $firstName = $nameParts[0];
-            
-                $initial = strtoupper(substr($nameParts[0], 0, 1));
-                $initial2 = strtoupper(substr($nameParts[1], 0, 1));
+
+                // Verificamos si el índice 1 existe antes de acceder a él
+                $initial = strtoupper(substr($firstName, 0, 1));
+                $initial2 = isset($nameParts[1]) ? strtoupper(substr($nameParts[1], 0, 1)) : '';
+
                 $name = isset($nameParts[0]) ? ucfirst(strtolower(substr($nameParts[0], 0, 12))) : '';
                 $lastName = isset($nameParts[1]) ? ucfirst(strtolower(substr($nameParts[1], 0, 12))) : '';
 
@@ -35,8 +37,8 @@
                     <div class="block md:hidden">
                         {{ $nameLength > 6 ? $initial.'.   ' : $name }} {{ $lastName}}
                     </div>
-                   
-        
+
+
                     <span><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10 12.293l-5.293-5.293a1 1 0 00-1.414 1.414l6 6a1 1 0 001.414 0l6-6a1 1 0 00-1.414-1.414L10 12.293z" clip-rule="evenodd" />
                         </svg>
@@ -115,9 +117,10 @@
                                     <li class="py-2 flex items-center"><a href="{{ route('champion-league') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/2.png" class="w-5 h-5 mr-1 rounded-full"> Champion League</a></li>
                                     <li class="py-2 flex items-center"><a href="{{ route('europa-league') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/3.png" class="w-5 h-5 mr-1 rounded-full"> Europa League</a></li>
                                     <li class="py-2 flex items-center"><a href="{{ route('europa-conference-league') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/848.png" class="w-5 h-5 mr-1 rounded-full"> Europa Conference League</a></li>
+                                    <li class="py-2 flex items-center"><a href="{{ route('copa-libertadores') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/13.png" class="w-5 h-5 mr-1 rounded-full"> Copa Libertadores</a></li>
 
                                 </ul>
-                               
+
                             </li>
                             <!-- Contenido del super menú aquí -->
                             <li class="flex items-center relative" @click.away="subMenuOpen = false" x-data="{ subMenuOpen: false }">
@@ -156,7 +159,7 @@
                                 <ul x-show="subMenuOpen" class="absolute left-0 top-full mt-2 p-2 bg-white rounded-lg shadow-lg" x-cloak style="min-width: 200px; z-index: 10;">
 
                                     <li class="py-2 flex items-center"><a href="{{ route('copa-de-la-liga-argentina') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/1032.png" class="w-6 h-5 mr-1 rounded-full"> Copa de la liga </a></li>
-                                    <li class="py-2 flex items-center"><a href="{{ route('super-liga-argentina') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/1032.png" class="w-6 h-5 mr-1 rounded-full"> Superliga Argentina  </a></li>
+                                    <li class="py-2 flex items-center"><a href="{{ route('super-liga-argentina') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/1032.png" class="w-6 h-5 mr-1 rounded-full"> Superliga Argentina </a></li>
                                 </ul>
                             </li>
                             <!-- Repite el mismo patrón para los demás elementos <li> -->
