@@ -416,6 +416,29 @@ Route::middleware([
         return view('world.copa-libertadores.fouls');
     })->name('copa-libertadores-fouls');
 
+     //Copa Sudamericana
+     Route::get('/copa-sudamericana-corners', function () {
+        return view('world.copa-sudamericana.corners');
+    })->name('copa-sudamericana-corners');
+    Route::get('/copa-sudamericana-ht-ft', function () {
+        return view('world.copa-sudamericana.ht-ft');
+    })->name('copa-sudamericana-ht-ft');
+    Route::get('/copa-sudamericana-resultado', function () {
+        return view('world.copa-sudamericana.resultado');
+    })->name('copa-sudamericana-resultado');
+    Route::get('/copa-sudamericana-ambos-marcan', function () {
+        return view('world.copa-sudamericana.ambos_marcan');
+    })->name('copa-sudamericana-ambos-marcan');
+    Route::get('/copa-sudamericana-tarjetas', function () {
+        return view('world.copa-sudamericana.tarjetas');
+    })->name('copa-sudamericana-tarjetas');
+    Route::get('/copa-sudamericana-disparo-arco', function () {
+        return view('world.copa-sudamericana.disparo-arco');
+    })->name('copa-sudamericana-disparo-arco');
+    Route::get('/copa-sudamericana-fouls', function () {
+        return view('world.copa-sudamericana.fouls');
+    })->name('copa-sudamericana-fouls');
+
 });
 
 //no es necesario esta autenticado
@@ -525,3 +548,8 @@ Route::get('/europa-conference-league', function () {
 Route::get('/copa-libertadores', function () {
     return view('world.copa-libertadores.index');
 })->name('copa-libertadores');
+
+//Copa Sudamericana
+Route::get('/copa-sudamericana', function () {
+    return view('world.copa-sudamericana.index');
+})->name('copa-sudamericana');

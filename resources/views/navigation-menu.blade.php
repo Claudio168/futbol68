@@ -118,7 +118,8 @@
                                     <li class="py-2 flex items-center"><a href="{{ route('europa-league') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/3.png" class="w-5 h-5 mr-1 rounded-full"> Europa League</a></li>
                                     <li class="py-2 flex items-center"><a href="{{ route('europa-conference-league') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/848.png" class="w-5 h-5 mr-1 rounded-full"> Europa Conference League</a></li>
                                     <li class="py-2 flex items-center"><a href="{{ route('copa-libertadores') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/13.png" class="w-5 h-5 mr-1 rounded-full"> Copa Libertadores</a></li>
-
+                                    <li class="py-2 flex items-center"><a href="{{ route('copa-sudamericana') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/11.png" class="w-5 h-5 mr-1 rounded-full"> Copa Sudamericana
+                                    </a></li>
                                 </ul>
 
                             </li>

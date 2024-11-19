@@ -45,9 +45,10 @@
     </div>
 
     <footer>
-        <p>&copy; <span id="currentYear"></span> Tu Sitio Web. Todos los derechos reservados.</p>
-    </footer>
-    <script>
+    <p>&copy; <span id="currentYear"></span> Claudio González Delgado. Todos los derechos reservados.</p>
+    <p>Contacto: <a href="mailto:claudio@futbol168.net">claudio@futbol168.net</a></p>
+</footer>
+<script>
         document.getElementById('currentYear').innerText = new Date().getFullYear();
     </script>
     @stack('modals')
