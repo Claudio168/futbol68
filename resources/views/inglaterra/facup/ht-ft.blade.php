@@ -4,7 +4,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <livewire:half-time-full-time :pais="'Inglaterra'"  :liga="'fa-cup'" :temPorDefecto="'FACup\FACup2023'"  :temp2023="'FACup\FACup2023'" />
+                <livewire:half-time-full-time :pais="'Inglaterra\FACup'" :liga="'facup'"  :nombreModelo="'FACup'"/>
         </div>
     </div>
 </x-app-layout>
