@@ -9,7 +9,7 @@ use App\Services\YearRangeService;
 
 class Tarjetas extends Component
 {
-    public $lugar, $team, $total, $arbitro, $temporada, $temp2024, $temp2023,  $pais, $liga, $countMaches, $param, $nombreModelo,  $auxModel;
+    public $lugar, $team, $total, $arbitro, $temporada,  $pais, $liga, $countMaches, $param, $nombreModelo, $anioDefecto, $auxModel;
 
     
     public $anios = [];
@@ -28,12 +28,25 @@ class Tarjetas extends Component
     {
         $anioDefecto =  reset($this->anios);//se optiene el ultimo año del select
         $modelName = $this->nombreModelo . ($this->temporada ?? $anioDefecto);
+
         
-        //se guardan los partidos en cache durante una hora
-        $cacheKeyPremier = 'PremierLeagueStat' . $this->liga . $this->temporada;
-        $model = Cache::remember($cacheKeyPremier, 1440, function () use ($modelName) {
-            return app("App\\Models\\$this->pais\\$modelName");
-        });
+        $this->auxModel = $modelName;
+        
+        // Se guarda el cacheKey basado en el modelo y temporada
+        $cacheKeyPremier = $modelName;
+        
+        if ($this->temporada === $this->anioDefecto) {
+            // Temporada actual, cacheo por 1 día (1440 minutos)
+            $model = Cache::remember($cacheKeyPremier, 1440, function () use ($modelName) {
+                return app("App\\Models\\$this->pais\\$modelName");
+            });
+        } else {
+            // Temporada anterior, cacheo indefinido
+            $model = Cache::rememberForever($cacheKeyPremier, function () use ($modelName) {
+                return app("App\\Models\\$this->pais\\$modelName");
+            });
+        }
+
 
         //se guardan los equipos en cache durante un mes
         $cacheKey = 'teams' . $this->liga . $this->temporada;

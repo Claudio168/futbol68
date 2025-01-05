@@ -1,6 +1,6 @@
 <div class="bg-gray-900">
     <div class="overflow-x-auto">
-        @if($countMaches > 3)
+        @if($countMaches > 30)
            <livewire:calculadora-corners :nombreModelo="$auxModel" />
         @endif
         <div class="flex">

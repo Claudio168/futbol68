@@ -11,14 +11,12 @@ class CalculadoraTarjetas extends Component
 
     public function render()
     {
-        $valor = Cache::get($this->nombreModelo);
-    
-        $model =  $valor;
-
+        // Recuperar el modelo desde el cache
+        $model = Cache::get($this->nombreModelo);
 
         //se guardan los equipos en cache durante un mes
         $cacheKey = 'teams'.$this->liga . $this->temporada;
-        $teams = Cache::remember($cacheKey, 43200, function () use ($model) {
+        $teams = Cache::remember($cacheKey, 0, function () use ($model) {
             $homeTeams = $model::select('teams_home_name')
                 ->distinct()
                 ->get()

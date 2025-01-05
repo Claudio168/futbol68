@@ -1,7 +1,7 @@
 <div class="bg-gray-900">
     <div class="overflow-x-auto">
-        @if($countMaches > 3)
-        <livewire:calculadora-tarjetas :pais="$pais" :$anioDefecto="$anioDefecto" :liga="$liga" :nombreModelo="$nombreModelo" />
+        @if($countMaches > 30)
+        <livewire:calculadora-tarjetas :nombreModelo="$auxModel" />
         @endif
         <div class="flex">
             <select class="seleccion selAnio" wire:model.live="temporada">

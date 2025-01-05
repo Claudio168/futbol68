@@ -12,7 +12,7 @@
                 @foreach($teams as $team)
                 <option class="text-left">{{$team}}</option>
                 @endforeach
-
+            
             </select>
             <select class="seleccion selAnio" wire:model.live="lugar">
                 <option value="ambos">Lugar</option>

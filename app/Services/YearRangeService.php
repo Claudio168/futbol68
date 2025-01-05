@@ -11,7 +11,7 @@ class YearRangeService
         if (in_array($pais, $paisesDeEuropa)) {
             $anios = range(2020, 2024); // Rango de años
         } else {
-            $anios = range(2020, 2024); // Rango de años
+            $anios = range(2020, 2025); // Rango de años
         }
 
         rsort($anios); // Ordena la lista de años de mayor a menor

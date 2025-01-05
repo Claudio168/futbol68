@@ -27,9 +27,10 @@ class TablaGoles extends Component
     
     public function render()
     {
+        
         $anioDefecto =  reset($this->anios);//se optiene el ultimo año del select
         $modelName = $this->nombreModelo . ($this->temporada ?? $anioDefecto);
-        
+       
     
         //se guardan los partidos en cache durante una hora
         $cacheKeyPremier = $this->liga . $this->temporada;
@@ -56,6 +57,8 @@ class TablaGoles extends Component
 
             return $teams;
         });
+        
+        
 
         $query =  $model::orderBy('fixture_timestamp', 'DESC')->get();
 
@@ -140,7 +143,7 @@ class TablaGoles extends Component
                 }
             }
         }
-
+        
         $partidos = $query;
         return view('livewire.tabla-goles', compact('partidos', 'teams'));
     }
