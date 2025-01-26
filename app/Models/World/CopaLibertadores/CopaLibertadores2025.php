@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models\World;
+namespace App\Models\World\CopaLibertadores;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CopaSudamericanaStat2024 extends Model
+class CopaLibertadores2025 extends Model
 {
     use HasFactory;
-    protected $table = 'world_copa_sudamericana_stats2024';
+    protected $table = 'world_copa_libertadores_2025';
     protected $guarded = [];
 }
