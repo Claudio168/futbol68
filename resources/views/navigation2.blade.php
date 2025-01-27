@@ -2,6 +2,14 @@
     <div class="overflow-x-auto" id="horizontal-scroll">
         <div class="flex mt-3" id="nav-items">
            
+        @if(isset($ruta_resultado))
+            <div class="flex-none w-30 p-2" id="resultado">
+
+                <x-nav-link href="{{ route($ruta_resultado) }}" :active="request()->routeIs($ruta_resultado)">
+                    Resultado
+                </x-nav-link>
+            </div>
+            @endif
             
             @if(isset($ruta_goles))
             <div class="flex-none w-30 p-2" id="goles">
@@ -10,14 +18,7 @@
                 </x-nav-link>
             </div>
             @endif
-            @if(isset($ruta_resultado))
-            <div class="flex-none w-30 p-2" id="resultado">
-
-                <x-nav-link href="{{ route($ruta_resultado) }}" :active="request()->routeIs($ruta_resultado)">
-                    Resultado
-                </x-nav-link>
-            </div>
-            @endif
+           
             @if(isset($ruta_corners))
             <div class="flex-none w-30 p-2" id="corners">
 

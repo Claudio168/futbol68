@@ -21,15 +21,23 @@ class Resultado extends Component
 
     // Inyecta el servicio en el método mount
     public function mount(YearRangeService $yearRangeService)
-    {
+    {   
+        //session()->forget('temporada');
         $this->yearRangeService = $yearRangeService;
         $this->anios = $this->yearRangeService->getYearRange($this->pais);
+        $this->temporada = session('temporada', reset($this->anios)); // Cargar desde la sesión o usar el valor por defecto
+    }
+    public function updatedTemporada($value)
+    {
+        session(['temporada' => $value]); // Actualizar la sesión
     }
     
     public function render()
     {
-        $anioDefecto =  reset($this->anios);//se optiene el ultimo año del select
+        
+        $anioDefecto = reset($this->anios); // Obtiene el primer año
         $modelName = $this->nombreModelo . ($this->temporada ?? $anioDefecto);
+        
         
         //se guardan los partidos en cache durante una hora
         $cacheKeyPremier = $this->liga . $this->temporada;

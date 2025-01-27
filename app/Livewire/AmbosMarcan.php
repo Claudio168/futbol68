@@ -23,6 +23,12 @@ class AmbosMarcan extends Component
     {
         $this->yearRangeService = $yearRangeService;
         $this->anios = $this->yearRangeService->getYearRange($this->pais);
+        $this->temporada = session('temporada', reset($this->anios)); // Cargar desde la sesión o usar el valor por defecto
+    }
+
+    public function updatedTemporada($value)
+    {
+        session(['temporada' => $value]); // Actualizar la sesión
     }
     
     public function render()

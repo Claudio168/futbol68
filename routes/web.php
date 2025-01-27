@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('inglaterra.premier.index');
+    return view('inglaterra.premier.resultado');
 })->name('dashboard');
 
 Route::middleware([
@@ -14,9 +14,125 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
+   //aqui poner rutas que necesiten autentificacion
+   
+});
+
+//Inglaterra
+//Premier
+Route::get('/premier-league', function () {
+    return view('inglaterra.premier.resultado');
+})->name('premier-league');
+
+//FA CUP
+Route::get('/fa-cup', function () {
+    return view('inglaterra.facup.index');
+})->name('fa-cup');
+
+Route::get('/fa-cup-ambos-marcan', function () {
+    return view('inglaterra.facup.ambos_marcan');
+})->name('fa-cup-ambos-marcan');
+
+Route::get('/fa-cup-resultado', function () {
+    return view('inglaterra.facup.resultado');
+})->name('fa-cup-resultado');
+
+Route::get('/fa-cup-ht-ft', function () {
+    return view('inglaterra.facup.ht-ft');
+})->name('fa-cup-ht-ft');
+
+
+//España
+Route::get('/la-liga', function () {
+    return view('espania.index');
+})->name('la-liga');
+
+//Italia
+Route::get('/el-calcio', function () {
+    return view('italia.index');
+})->name('el-calcio');
+
+//Alemania
+Route::get('/bundesliga', function () {
+    return view('alemania.index');
+})->name('bundesliga');
+
+//Argentina
+// --Copa de la liga --
+Route::get('/copa-de-la-liga-argentina', function () {
+    return view('argentina.index');
+})->name('copa-de-la-liga-argentina');
+
+
+// --Super liga --
+Route::get('/super-liga-argentina', function () {
+    return view('argentina.superliga.index');
+})->name('super-liga-argentina');
+
+//Francia
+Route::get('/ligue1', function () {
+    return view('francia.index');
+})->name('ligue1');
+
+//Portugal
+Route::get('/primeiraliga', function () {
+    return view('portugal.index');
+})->name('primeiraliga');
+
+//Chile
+Route::get('/chile-primera-division', function () {
+    return view('chile.index');
+})->name('chile-primera-division');
+
+//Paises bajos
+Route::get('/eredivisie', function () {
+    return view('paisesbajos.index');
+})->name('eredivisie');
+
+//Colombia
+Route::get('/colombia-primera-a', function () {
+    return view('colombia.index');
+})->name('colombia-primera-a');
+
+//Mexico
+Route::get('/liga-mx', function () {
+    return view('mexico.index');
+})->name('liga-mx');
+
+//Brasil
+Route::get('/brasileirao', function () {
+    return view('brasil.index');
+})->name('brasileirao');
+
+//Champion league
+Route::get('/champion-league', function () {
+    return view('world.champion-league.index');
+})->name('champion-league');
+
+//Europa league
+Route::get('/europa-league', function () {
+    return view('world.europa-league.index');
+})->name('europa-league');
+
+//Europa conference league
+Route::get('/europa-conference-league', function () {
+    return view('world.europa-conference-league.index');
+})->name('europa-conference-league');
+
+//Copa Libertadores
+Route::get('/copa-libertadores', function () {
+    return view('world.copa-libertadores.index');
+})->name('copa-libertadores');
+
+//Copa Sudamericana
+Route::get('/copa-sudamericana', function () {
+    return view('world.copa-sudamericana.index');
+})->name('copa-sudamericana');
+
+
     //Inglaterra
     Route::get('/dashboard', function () {
-        return view('inglaterra.premier.index');
+        return view('inglaterra.premier.resultado');
     })->name('dashboard');
 
     Route::get('/premier-league-corners', function () {
@@ -439,117 +555,7 @@ Route::middleware([
         return view('world.copa-sudamericana.fouls');
     })->name('copa-sudamericana-fouls');
 
-});
-
-//no es necesario esta autenticado
-
-//Inglaterra
-//Premier
-Route::get('/premier-league', function () {
-    return view('inglaterra.premier.index');
-})->name('premier-league');
-
-//FA CUP
-Route::get('/fa-cup', function () {
-    return view('inglaterra.facup.index');
-})->name('fa-cup');
-
-Route::get('/fa-cup-ambos-marcan', function () {
-    return view('inglaterra.facup.ambos_marcan');
-})->name('fa-cup-ambos-marcan');
-
-Route::get('/fa-cup-resultado', function () {
-    return view('inglaterra.facup.resultado');
-})->name('fa-cup-resultado');
-
-Route::get('/fa-cup-ht-ft', function () {
-    return view('inglaterra.facup.ht-ft');
-})->name('fa-cup-ht-ft');
 
 
-//España
-Route::get('/la-liga', function () {
-    return view('espania.index');
-})->name('la-liga');
-
-//Italia
-Route::get('/el-calcio', function () {
-    return view('italia.index');
-})->name('el-calcio');
-
-//Alemania
-Route::get('/bundesliga', function () {
-    return view('alemania.index');
-})->name('bundesliga');
-
-//Argentina
-// --Copa de la liga --
-Route::get('/copa-de-la-liga-argentina', function () {
-    return view('argentina.index');
-})->name('copa-de-la-liga-argentina');
 
 
-// --Super liga --
-Route::get('/super-liga-argentina', function () {
-    return view('argentina.superliga.index');
-})->name('super-liga-argentina');
-
-//Francia
-Route::get('/ligue1', function () {
-    return view('francia.index');
-})->name('ligue1');
-
-//Portugal
-Route::get('/primeiraliga', function () {
-    return view('portugal.index');
-})->name('primeiraliga');
-
-//Chile
-Route::get('/chile-primera-division', function () {
-    return view('chile.index');
-})->name('chile-primera-division');
-
-//Paises bajos
-Route::get('/eredivisie', function () {
-    return view('paisesbajos.index');
-})->name('eredivisie');
-
-//Colombia
-Route::get('/colombia-primera-a', function () {
-    return view('colombia.index');
-})->name('colombia-primera-a');
-
-//Mexico
-Route::get('/liga-mx', function () {
-    return view('mexico.index');
-})->name('liga-mx');
-
-//Brasil
-Route::get('/brasileirao', function () {
-    return view('brasil.index');
-})->name('brasileirao');
-
-//Champion league
-Route::get('/champion-league', function () {
-    return view('world.champion-league.index');
-})->name('champion-league');
-
-//Europa league
-Route::get('/europa-league', function () {
-    return view('world.europa-league.index');
-})->name('europa-league');
-
-//Europa conference league
-Route::get('/europa-conference-league', function () {
-    return view('world.europa-conference-league.index');
-})->name('europa-conference-league');
-
-//Copa Libertadores
-Route::get('/copa-libertadores', function () {
-    return view('world.copa-libertadores.index');
-})->name('copa-libertadores');
-
-//Copa Sudamericana
-Route::get('/copa-sudamericana', function () {
-    return view('world.copa-sudamericana.index');
-})->name('copa-sudamericana');

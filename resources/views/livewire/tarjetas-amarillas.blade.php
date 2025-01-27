@@ -1,6 +1,6 @@
 <div class="bg-gray-900">
     <div class="overflow-x-auto">
-        @if($countMaches > 30)
+        @if($countMaches > 30 && $countMaches < 380)
         <livewire:calculadora-tarjetas :nombreModelo="$auxModel" />
         @endif
         <div class="flex">
