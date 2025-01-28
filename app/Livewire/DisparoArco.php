@@ -28,19 +28,26 @@ class DisparoArco extends Component
     {
         session(['temporada' => $value]); // Actualizar la sesión
     }
-    
-    
+
+
     public function render()
     {
-        $anioDefecto =  reset($this->anios);//se optiene el ultimo año del select
+        $anioDefecto =  reset($this->anios); //se optiene el ultimo año del select
         $modelName = $this->nombreModelo . ($this->temporada ?? $anioDefecto);
         //se guardan los partidos en cache durante una hora
         $cacheKeyPremier = 'PremierLeagueStat' . $this->liga . $this->temporada;
         $model = Cache::remember($cacheKeyPremier, 1440, function () use ($modelName) {
-            return app("App\\Models\\$this->pais\\$modelName");
+            try {
+                // Intenta resolver el modelo
+                return app("App\\Models\\$this->pais\\$modelName");
+            } catch (\Exception $e) {
+                // Retorna null o un valor predeterminado si no se encuentra el modelo
+                return null;
+            }
         });
-
-        //se guardan los equipos en cache durante un mes
+        // Verifica si el modelo es válido antes de continuar
+        if ($model) {
+             //se guardan los equipos en cache durante un mes
         $cacheKey = 'teams' . $this->liga . $this->temporada;
         $teams = Cache::remember($cacheKey, 43200, function () use ($model) {
             $homeTeams = $model::select('teams_home_name')
@@ -187,5 +194,11 @@ class DisparoArco extends Component
 
         //return view('livewire.disparo-arco', compact('partidos', 'teams'));
         //sleep(1);
+        } else {
+            // Lógica cuando no se encuentra un modelo válido
+            // Ejemplo: Mostrar un mensaje de error o redirigir
+            return view('errors.modelo_no_encontrado');
+        }
+       
     }
 }

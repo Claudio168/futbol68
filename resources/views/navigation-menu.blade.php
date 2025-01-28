@@ -174,17 +174,7 @@
                                     <li class="py-2"><a href="#"></a></li>
                                 </ul>
                             </li>
-                            <!-- Repite el mismo patrón para los demás elementos <li> -->
-                            <li class="flex items-center relative" @click.away="subMenuOpen = false" x-data="{ subMenuOpen: false }">
-                                <img src="{{ asset('banderas/francia.jpg') }}" class="w-5 h-4 rounded-full">
-                                <a class="px-2 py-2 hover:text-gray-400 text-gray-800" @click.prevent="subMenuOpen = !subMenuOpen">Francia</a>
-                                <!-- Submenú -->
-                                <ul x-show="subMenuOpen" class="absolute left-0 top-full mt-2 p-2 bg-white rounded-lg shadow-lg" x-cloak style="min-width: 200px; z-index: 10;">
-
-                                    <li class="py-2 flex items-center"><a href="{{ route('ligue1') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/61.png" class="w-6 h-5 mr-1 rounded-full"> ligue 1</a></li>
-                                    <li class="py-2"><a href="#"></a></li>
-                                </ul>
-                            </li>
+                            
                             <!-- Repite el mismo patrón para los demás elementos <li> -->
                             <li class="flex items-center relative" @click.away="subMenuOpen = false" x-data="{ subMenuOpen: false }">
                                 <img src="{{ asset('banderas/colombia.jpg') }}" class="w-5 h-4 rounded-full">
@@ -206,18 +196,7 @@
 
                                 </ul>
                             </li>
-                            <!-- Repite el mismo patrón para los demás elementos <li> -->
-                            <li class="flex items-center relative" @click.away="subMenuOpen = false" x-data="{ subMenuOpen: false }">
-                                <img src="{{ asset('banderas/inglaterra.jpg') }}" class="w-5 h-4 rounded-full">
-                                <a class="px-2 py-2 hover:text-gray-400 text-gray-800" @click.prevent="subMenuOpen = !subMenuOpen">Inglaterra</a>
-                                <!-- Submenú -->
-                                <ul x-show="subMenuOpen" class="absolute left-0 top-full mt-2 p-2 bg-white rounded-lg shadow-lg" x-cloak style="min-width: 200px; z-index: 10;">
-                                    <li class="py-2 flex items-center"><a href="{{ route('premier-league') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/39.png" class="w-6 h-5 mr-1 rounded-full">Premier League</a></li>
-                                    <li class="py-2 flex items-center"><a href="{{ route('fa-cup') }}" class="flex items-center space-x-2" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><img src="https://media.api-sports.io/football/leagues/45.png" class="w-6 h-5 mr-1 rounded-full">FA Cup</a></li>
-                                </ul>
-
-                            </li>
-                            <!-- Repite el mismo patrón para los demás elementos <li> -->
+                            
                         </ul>
                     </li>
 

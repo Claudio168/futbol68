@@ -1,6 +1,10 @@
 <div class="bg-gray-900">
     <div class="overflow-x-auto">
-        @if($countMaches > 30 && $countMaches < 380)
+        @php
+        $currentYear = now()->year; // Obtiene el año actual
+        @endphp
+
+        @if($countMaches > 30 && ($temporada == $currentYear || $temporada == $currentYear - 1))
         <livewire:calculadora-tarjetas :nombreModelo="$auxModel" />
         @endif
         <div class="flex">

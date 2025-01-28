@@ -5,6 +5,7 @@
        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <?php session()->forget('temporada'); ?>
             <livewire:tabla-goles :pais="'Colombia'" :liga="'colombia-primera-a'" :nombreModelo="'ColombiaApertura'" />
             </div>
         </div>

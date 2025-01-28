@@ -12,7 +12,7 @@ class Corners extends Component
     public $lugar, $team, $total, $temporada,  $nombreModelo, $pais, $liga, $countMaches, $modelName, $anioDefecto, $auxModel;
 
     public $anios = [];
-    
+
 
     protected $yearRangeService;
 
@@ -28,33 +28,46 @@ class Corners extends Component
     {
         session(['temporada' => $value]); // Actualizar la sesión
     }
-    
+
 
     public function render()
     {
-        
+
         $this->anioDefecto = reset($this->anios); // Se obtiene el último año del select
         $modelName = $this->nombreModelo . ($this->temporada ?? $this->anioDefecto);
-    
+
         $this->auxModel = $modelName;
 
         // Se guarda el cacheKey basado en el modelo y temporada
         $cacheKeyPremier = $modelName;
-        
+
         if ($this->temporada === $this->anioDefecto) {
             // Temporada actual, cacheo por 1 día (1440 minutos)
             $model = Cache::remember($cacheKeyPremier, 1440, function () use ($modelName) {
-                return app("App\\Models\\$this->pais\\$modelName");
+                try {
+                    // Intenta resolver el modelo
+                    return app("App\\Models\\$this->pais\\$modelName");
+                } catch (\Exception $e) {
+                    // Retorna null o un valor predeterminado si no se encuentra el modelo
+                    return null;
+                }
             });
         } else {
-            
+
             // Temporada anterior, cacheo indefinido
             $model = Cache::rememberForever($cacheKeyPremier, function () use ($modelName) {
-                return app("App\\Models\\$this->pais\\$modelName");
+                try {
+                    // Intenta resolver el modelo
+                    return app("App\\Models\\$this->pais\\$modelName");
+                } catch (\Exception $e) {
+                    // Retorna null o un valor predeterminado si no se encuentra el modelo
+                    return null;
+                }
             });
         }
-
-        //Equipos en cache
+        // Verifica si el modelo es válido antes de continuar
+        if ($model) {
+            //Equipos en cache
         $cacheKey = 'teams' . $modelName;
         // Si es la temporada actual, cachea por un mes (43200 minutos). Para temporadas anteriores, cachea indefinidamente.
         if ($this->temporada === $this->anioDefecto) {
@@ -176,8 +189,14 @@ class Corners extends Component
         }
 
         $partidos = $query;
-    
+
 
         return view('livewire.corners', compact('partidos', 'teams'));
+        } else {
+            // Lógica cuando no se encuentra un modelo válido
+            // Ejemplo: Mostrar un mensaje de error o redirigir
+            return view('errors.modelo_no_encontrado');
+        }
+        
     }
 }

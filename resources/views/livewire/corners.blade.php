@@ -1,11 +1,15 @@
 <div class="bg-gray-900">
     <div class="overflow-x-auto">
-        @if($countMaches > 30 && $countMaches < 380)
-           <livewire:calculadora-corners :nombreModelo="$auxModel" />
+        @php
+        $currentYear = now()->year; // Obtiene el año actual
+        @endphp
+
+        @if($countMaches > 30 && ($temporada == $currentYear || $temporada == $currentYear - 1))
+        <livewire:calculadora-corners :nombreModelo="$auxModel" />
         @endif
         <div class="flex">
             <select class="seleccion selAnio" wire:model.live="temporada">
-                @foreach($anios  as $anio)
+                @foreach($anios as $anio)
                 <option value="{{ $anio }}"> {{ $anio }} </option>
                 @endforeach
             </select>
@@ -35,7 +39,7 @@
 
     <div class="overflow-x-auto table-container">
         <table id="customers">
-            <thead >
+            <thead>
 
                 <tr>
                     <th>Fecha</th>
