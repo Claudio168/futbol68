@@ -13,7 +13,7 @@
     <meta property="og:url" content="{{ url()->current() }}">
    
 
-    <title>⚽ Estadísticas de Fútbol en Vivo | LaLiga, Premier, Champions y Más</title>
+    <title>⚽ Estadísticas de Fútbol | LaLiga, Premier, Champions y Más</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
 

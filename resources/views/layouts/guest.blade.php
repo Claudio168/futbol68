@@ -11,7 +11,7 @@
     <meta property="og:image" content="{{ asset('miniatura.png') }}">
     <meta property="og:url" content="{{ url()->current() }}">
 
-    <title>⚽ Estadísticas de Fútbol en Vivo | LaLiga, Premier, Champions y Más</title>
+    <title>⚽ Estadísticas de Fútbol | LaLiga, Premier, Champions y Más</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
